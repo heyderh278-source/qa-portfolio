@@ -16,3 +16,7 @@ learning: Java + selenium
 ## Test sandbox
 I set up my own test site on a local server and tested it: Frontend and validation.
 
+## Contact
+- Email: heyderh278@gmail.com
+- Telegram: @AliHa1dar
+  
