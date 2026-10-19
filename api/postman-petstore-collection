@@ -1,0 +1,339 @@
+{
+  "info": {
+    "_postman_id": "a3c0def6-3034-4649-acaa-d99fc7bce515",
+    "name": "Petstore",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58665638",
+    "_collection_link": "https://go.postman.co/collection/58665638-a3c0def6-3034-4649-acaa-d99fc7bce515?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Pet",
+      "item": [
+        {
+          "name": "200:Find pets by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=sold",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "pet",
+                "findByStatus"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "sold"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "400:Find pets by status Copy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/pet/findByStatus",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "pet",
+                "findByStatus"
+              ],
+              "query": [
+                {
+                  "key": "ыефегк",
+                  "value": "пун",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "helloo",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "false",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "sold",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "pending",
+                  "disabled": true
+                },
+                {
+                  "key": "123",
+                  "value": "sold",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "123",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "201:add new pet",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"rexie\" ,\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_URL}}/pet",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200:update a pet",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 625765,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"rexie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_URL}}/pet",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find pet by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Name is okay\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.name).to.eql(\"doggie\");",
+                  "     pm.expect(jsonData.id).to.eql(9223372036854775807);",
+                  "});",
+                  "pm.test(\"Server is present\", function () {",
+                  "    pm.response.to.have.header(\"Server\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_URL}}/pet/{{Rexie_ID}}",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "pet",
+                "{{Rexie_ID}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a pet",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_URL}}/pet/9223372036854023050",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "pet",
+                "9223372036854023050"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create with array",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n\t\"id\":1,\r\n\t\"username\":\"Lisa\",\r\n\t\"firstName\":\"Liza\",\r\n\t\"lastName\":\"Petrova\",\r\n\t\"email\":\"lizocka@mail.ru\",\r\n\t\"password\":\"abc123\",\r\n\t\"phone\":\"5638235768\",\r\n\t\"userStatus\":0\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_URL}}/user/createWithArray",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "user",
+                "createWithArray"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200:order a pet",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 625765,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2026-10-11T16:53:14.326Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_URL}}/store/order",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "store",
+                "order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete an  order",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_URL}}/store/order/625765",
+              "host": [
+                "{{base_URL}}"
+              ],
+              "path": [
+                "store",
+                "order",
+                "625765"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_URL",
+      "value": ""
+    },
+    {
+      "key": "Rexie_ID",
+      "value": ""
+    }
+  ]
+}
